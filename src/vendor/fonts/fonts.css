@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('./segoe-ui.woff') format('woff'),
+       url('./segoe-ui.woff2') format('woff2');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('./roboto-regular.woff') format('woff'),
+       url('./roboto-regular.woff2') format('woff2');
+  font-style: normal;
+}

@@ -1,0 +1,11 @@
+.overlay {
+  display: flex;
+  position: fixed;
+  background-image: url(../../images/main-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.6;
+  filter: blur(10px);
+}
