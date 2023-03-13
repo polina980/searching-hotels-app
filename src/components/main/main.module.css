@@ -1,0 +1,9 @@
+.main {
+  display: grid;
+  grid-template-columns: 360px 664px;
+  grid-template-rows: 408px;
+  gap: 24px;
+  padding-bottom: 30px;
+  justify-content: center;
+  background-color: #E5E5E5;
+}

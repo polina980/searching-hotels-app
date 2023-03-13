@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 35px;
+  height: 92px;
+  background-color: #E5E5E5;
+}
+
+.title {
+  margin: 0;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #424242;
+}
+
+.button {
+  width: 120px;
+  border: 0;
+  background-image: url(../../images/exit.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #41522E;
+}
