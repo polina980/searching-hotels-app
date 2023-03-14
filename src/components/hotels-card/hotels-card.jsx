@@ -1,8 +1,15 @@
+import { useState } from 'react';
 import styles from './hotels-card.module.css';
 import AboutHotel from '../about-hotel/about-hotel.jsx';
 import images from '../../utils/images.js'
 
 function HotelsCard() {
+  const [totalLikes, setTotalLikes] = useState(0);
+
+  const handleLike = (count) => {
+    setTotalLikes(totalLikes + count);
+  };
+
   return (
     <section className={styles.hotels}>
       <div className={styles.firstString}>
@@ -20,32 +27,32 @@ function HotelsCard() {
         <img src={images.track} alt="Трасса" />
       </div>
       <p className={styles.hotelsAmount}>
-        Добавлено в Избранное: <strong>3</strong> отеля
+        Добавлено в Избранное: <strong>{totalLikes}</strong> отеля
       </p>
       <div className={styles.hotelsScroll}>
         <div className={styles.hotelFull}>
           <div className={styles.icon}></div>
-          <AboutHotel />
+          <AboutHotel onClick={handleLike} />
         </div>
         <div className={styles.hotelFull}>
           <div className={styles.icon}></div>
-          <AboutHotel />
+          <AboutHotel onClick={handleLike} />
         </div>
         <div className={styles.hotelFull}>
           <div className={styles.icon}></div>
-          <AboutHotel />
+          <AboutHotel onClick={handleLike} />
         </div>
         <div className={styles.hotelFull}>
           <div className={styles.icon}></div>
-          <AboutHotel />
+          <AboutHotel onClick={handleLike} />
         </div>
         <div className={styles.hotelFull}>
           <div className={styles.icon}></div>
-          <AboutHotel />
+          <AboutHotel onClick={handleLike} />
         </div>
         <div className={styles.hotelFull}>
           <div className={styles.icon}></div>
-          <AboutHotel />
+          <AboutHotel onClick={handleLike} />
         </div>
       </div>
     </section>

@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import styles from './about-hotel.module.css';
 
-function AboutHotel() {
+function AboutHotel({ onClick }) {
   const [liked, setLiked] = useState(false);
   const [rated, setRated] = useState(false);
 
   const handleLikeClick = () => {
     setLiked(!liked);
+    onClick(liked ? -1 : 1, !liked);
   };
 
+  // Будет другая логика: рейтинг будет приходить с сервера
   const handleRateClick = (index) => {
     setRated(index + 1);
   };
