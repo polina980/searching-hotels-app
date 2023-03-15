@@ -9,7 +9,9 @@ function FavoriteCard() {
         <button className={styles.sort}>Рейтинг</button>
         <button className={styles.sort}>Цена</button>
       </div>
-      <div className={styles.blocks}>
+      <div className={styles.favScroll}>
+        <AboutHotel />
+        <AboutHotel />
         <AboutHotel />
         <AboutHotel />
         <AboutHotel />

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './hotels-card.module.css';
 import AboutHotel from '../about-hotel/about-hotel.jsx';
-import images from '../../utils/images.js'
+import SimpleSlider from '../slider/slider.jsx';
 
 function HotelsCard() {
   const [totalLikes, setTotalLikes] = useState(0);
@@ -19,13 +19,7 @@ function HotelsCard() {
         </div>
         <p className={styles.checkInDate}>07 июля 2020</p>
       </div>
-      <div className={styles.imagesScroll}>
-        <img src={images.house} alt="Дом" />
-        <img src={images.forest} alt="Лес" />
-        <img src={images.road} alt="Дорога" />
-        <img src={images.bridge} alt="Мост" />
-        <img src={images.track} alt="Трасса" />
-      </div>
+      <SimpleSlider />
       <p className={styles.hotelsAmount}>
         Добавлено в Избранное: <strong>{totalLikes}</strong> отеля
       </p>
