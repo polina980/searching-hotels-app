@@ -18,7 +18,7 @@ function SearchingCard({ handleSearch }) {
         <input type="text" className={styles.input} placeholder="Москва" value={location} onChange={(event) => setLocation(event.target.value)} />
       </label>
       <label className={styles.inputName}>Дата заселения
-        <input type="date" className={styles.input} defaultValue={todaysDate} onChange={(event) => setCheckIn(event.target.value)} />
+        <input type="date" className={styles.input} defaultValue={checkIn} onChange={(event) => setCheckIn(event.target.value)} />
       </label>
       <label className={styles.inputName}>Количество дней
         <input type="text" className={styles.input} placeholder={days} onChange={(event) => setDays(event.target.value)} />

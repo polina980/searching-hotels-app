@@ -4,7 +4,7 @@ import AboutHotel from '../about-hotel/about-hotel.jsx';
 import SimpleSlider from '../slider/slider.jsx';
 
 function HotelsCard({ hotels }) {
- // console.log(hotels) //проверяю перерисовку массива отелей
+  console.log(hotels) //проверяю перерисовку массива отелей
   const [totalLikes, setTotalLikes] = useState(0);
 
   const handleLike = (count) => {
