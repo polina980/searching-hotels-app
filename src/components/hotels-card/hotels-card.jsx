@@ -3,7 +3,8 @@ import styles from './hotels-card.module.css';
 import AboutHotel from '../about-hotel/about-hotel.jsx';
 import SimpleSlider from '../slider/slider.jsx';
 
-function HotelsCard() {
+function HotelsCard({ hotels }) {
+ // console.log(hotels) //проверяю перерисовку массива отелей
   const [totalLikes, setTotalLikes] = useState(0);
 
   const handleLike = (count) => {
@@ -24,30 +25,12 @@ function HotelsCard() {
         Добавлено в Избранное: <strong>{totalLikes}</strong> отеля
       </p>
       <div className={styles.hotelsScroll}>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel onClick={handleLike} />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel onClick={handleLike} />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel onClick={handleLike} />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel onClick={handleLike} />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel onClick={handleLike} />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel onClick={handleLike} />
-        </div>
+        {hotels.map((hotel) => (
+          // <div className={styles.hotelFull}>
+          //   <div className={styles.icon}></div>
+            <AboutHotel onClick={handleLike} key={hotel.hotelId} hotel={hotel} />
+          //  </div>
+        ))}
       </div>
     </section>
   )

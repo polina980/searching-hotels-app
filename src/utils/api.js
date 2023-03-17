@@ -1,10 +1,6 @@
 const apiConfig = {
   baseUrl: `http://engine.hotellook.com`,
-  hotels: '/api/v2/cache.json?location=Moscow&checkIn=2023-03-16&checkOut=2023-03-20',
-  // /api/v2/cache.json заменить позже
-  // defaultHeaders: {
-  //   'Content-Type': 'application/json',
-  // }
+  hotels: '/api/v2/cache.json',
 };
 
 function makeUrl(baseUrl, endpoint) {
@@ -18,19 +14,16 @@ function handleResponse(res) {
   return Promise.reject(`Ошибка: ${res.status}`);
 }
 
-function getHotels(baseUrl, hotels) {
-  return fetch(makeUrl(baseUrl, hotels))
-    .then(handleResponse);
-}
-
 class Api {
   constructor({ baseUrl, hotels }) {
     this._baseUrl = baseUrl;
     this._hotelsEndpoint = hotels;
   }
 
-  getHotels() {
-    return getHotels(this._baseUrl, this._hotelsEndpoint);
+  async getHotels({ location, checkIn, checkOut }) {
+    const url = makeUrl(this._baseUrl, this._hotelsEndpoint) + `?location=${location}&checkIn=${checkIn}&checkOut=${checkOut}`;
+    return fetch(url)
+      .then(handleResponse);
   }
 }
 
