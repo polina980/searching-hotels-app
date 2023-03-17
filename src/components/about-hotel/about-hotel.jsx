@@ -2,19 +2,13 @@ import { useState } from 'react';
 import styles from './about-hotel.module.css';
 
 function AboutHotel({ onClick, hotel }) {
- // console.log(hotel) // проверяю перерисовку элементов отелей
+  console.log(hotel)
   const [liked, setLiked] = useState(false);
 
   const handleLikeClick = () => {
     setLiked(!liked);
     onClick(liked ? -1 : 1, !liked);
   };
-
-  // const stars = Array.from( (length: 5)  => {
-  //   return (
-  //     <div className={styles.star}></div>
-  //   )
-  // })
 
   return (
     <div className={styles.hotelBlock}>
