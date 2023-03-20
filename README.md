@@ -5,9 +5,10 @@
 На странице авторизации почта и пароль проходят стандартную валидацию.  
 
 **Сайт приложения:**
-* [Searching hotels](https://polinashchepochkina.github.io/booking-app/)
+[Поиск отелей](https://polinashchepochkina.github.io/booking-app/)
 
-* [Ссылка на макет Figma](https://www.figma.com/file/PxI4ycD6GMGSpxOZ2NbFBO/React-Test%2FSimple-Hotel-Check-(Copy)?node-id=0-1)
+**Ссылка на макет:**
+[Figma](https://www.figma.com/file/PxI4ycD6GMGSpxOZ2NbFBO/React-Test%2FSimple-Hotel-Check-(Copy)?node-id=0-1)
 
 ### Стек технологий использованных при создании:  
 * React, React Router, HTML5, CSS3, npm, git и др.  
