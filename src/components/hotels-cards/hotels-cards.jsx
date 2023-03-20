@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import styles from './hotels-card.module.css';
+import { getHotelWord } from '../../utils/constants.js';
+import styles from './hotels-cards.module.css';
 import AboutHotel from '../about-hotel/about-hotel.jsx';
 import SimpleSlider from '../slider/slider.jsx';
-import { getHotelWord } from '../../utils/constants.js';
 
-function HotelsCards({ hotels, checkIn, days, formattedDate }) {
+function HotelsCards({ hotels, location, days, formattedDate }) {
   const [totalLikes, setTotalLikes] = useState(0);
 
   const handleLike = (count) => {
@@ -25,7 +25,7 @@ function HotelsCards({ hotels, checkIn, days, formattedDate }) {
       <div className={styles.firstString}>
         <div className={styles.firstColumn}>
           <p className={styles.arrow}>Отели</p>
-          <p></p>
+          <p>{location}</p>
         </div>
         <p className={styles.checkInDate}>{formattedDate}</p>
       </div>
@@ -37,12 +37,7 @@ function HotelsCards({ hotels, checkIn, days, formattedDate }) {
         {hotels.map((hotel) => (
           <div key={hotel.hotelId} className={styles.hotelFull}>
             <div className={styles.icon}></div>
-            <AboutHotel
-              onClick={handleLike}
-              hotel={hotel}
-              checkIn={checkIn}
-              days={days}
-              formattedDate={formattedDate} />
+            <AboutHotel onClick={handleLike} hotel={hotel} days={days} formattedDate={formattedDate} />
           </div>
         ))}
       </div>

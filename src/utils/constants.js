@@ -5,7 +5,7 @@ export const passwordRegex = /^[^\u0400-\u04FF]{8,}$/;
 // Сегодняшняя дата
 export const todaysDate = new Date().toISOString().split('T')[0];
 
-// Склонение отелей
+// Склонение отеля
 export function getHotelWord(count) {
   const lastDigit = count % 10;
   const lastTwoDigits = count % 100;
@@ -21,7 +21,7 @@ export function getHotelWord(count) {
   }
 }
 
-// Склонение дней
+// Склонение дня
 export function getDayWord(count) {
   const lastDigit = count % 10;
   const lastTwoDigits = count % 100;

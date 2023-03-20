@@ -1,5 +1,5 @@
+// Изображения в карусели
 const images = {
-  // Изображения в карусели
   house: require('../images/house-1.png'),
   forest: require('../images/forest-2.png'),
   road: require('../images/road-3.png'),

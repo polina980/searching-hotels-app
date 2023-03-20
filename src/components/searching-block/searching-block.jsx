@@ -1,6 +1,6 @@
-import styles from './searching-card.module.css';
+import styles from './searching-block.module.css';
 
-function SearchingCard({ handleSearch, setLocation, setCheckIn, setDays, location, checkIn, days }) {
+function SearchingBlock({ handleSearch, location, checkIn, days, setLocation, setCheckIn, setDays }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     handleSearch({ location, checkIn, days });
@@ -22,4 +22,4 @@ function SearchingCard({ handleSearch, setLocation, setCheckIn, setDays, locatio
   )
 }
 
-export default SearchingCard;
+export default SearchingBlock;

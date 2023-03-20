@@ -1,50 +1,44 @@
 import { useEffect, useState } from 'react';
-import styles from './about-hotel.module.css';
 import { getDayWord } from '../../utils/constants.js';
+import styles from './about-hotel.module.css';
 
 function AboutHotel({ onClick, hotel, days, formattedDate }) {
-  const likedHotels = JSON.parse(localStorage.getItem('likedHotels')) || {};
   const [liked, setLiked] = useState(false);
 
+  const handleLikeClick = () => {
+    const newLiked = !liked;
+    setLiked(newLiked);
+    onClick(newLiked ? 1 : -1, newLiked);
+    localStorage.setItem(hotel.hotelId, JSON.stringify(newLiked));
+    if (liked) {
+      localStorage.removeItem(hotel.hotelId, JSON.stringify(newLiked));
+    }
+  };
+
   useEffect(() => {
-    const likedHotels = JSON.parse(localStorage.getItem('likedHotels')) || {};
-    if (likedHotels[hotel.hotelId]) {
-      setLiked(true);
+    const isLiked = JSON.parse(localStorage.getItem(hotel.hotelId));
+    if (isLiked) {
+      setLiked(isLiked);
     }
   }, [hotel.hotelId]);
 
-  const handleLikeClick = () => {
-    setLiked(!liked);
-    onClick(liked ? -1 : 1, !liked);
-
-    const newLikedHotels = { ...likedHotels };
-    if (liked) {
-      delete newLikedHotels[hotel.hotelId];
-    } else {
-      newLikedHotels[hotel.hotelId] = true;
-    }
-    localStorage.setItem('likedHotels', JSON.stringify(newLikedHotels));
-  };
-
-  const stars = Array.from({ length: 5 }, (_, index) => {
-    return (
-      <div key={index} className={`${styles.star} ${index < hotel.stars ? styles.rated : ''}`}></div>
-    )
-  })
-
   return (
     <div className={styles.hotelBlock}>
-      <p className={styles.hotelName}>{hotel.hotelName}</p>
-      <div className={`${styles.like} ${liked ? styles.liked : ''}`} onClick={handleLikeClick}></div>
-      <p className={styles.date}>{formattedDate} - {days} {getDayWord(days)}</p>
+      <div className={styles.firstString}>
+        <p className={styles.hotelName}>{hotel.hotelName}</p>
+        <div className={`${styles.like} ${liked ? styles.liked : ''}`} onClick={handleLikeClick} ></div>
+      </div>
+      <p className={styles.date}>{formattedDate} — {days} {getDayWord(days)}</p>
       <div className={styles.lastString}>
         <div className={styles.rating}>
-          {stars}
+          {[...Array(5)].map((_, index) => (
+            <div key={index} className={`${styles.star} ${index < hotel.stars ? styles.rated : ''}`}></div>
+          ))}
         </div>
         <div className={styles.empty}></div>
         <div className={styles.priceBlock}>
           <p className={styles.priceText}>Цена:</p>
-          <p className={styles.priceTotal}>{hotel.priceAvg} ₽</p>
+          <p className={styles.priceTotal}>{Math.round(hotel.priceAvg).toLocaleString()} ₽</p>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
-import styles from './main.module.css';
-import SearchingCard from '../searching-card/searching-card.jsx';
-import FavoriteCard from '../favorite-card/favorite-card.jsx';
-import HotelsCard from '../hotels-card/hotels-card.jsx';
-import { apiHotels } from '../../utils/api.js';
 import { useEffect, useState } from 'react';
+import { apiHotels } from '../../utils/api.js';
+import styles from './main.module.css';
+import SearchingBlock from '../searching-block/searching-block.jsx';
+import FavoriteCards from '../favorite-cards/favorite-cards.jsx';
+import HotelsCards from '../hotels-cards/hotels-cards.jsx';
 
 function Main() {
   const [hotels, setHotels] = useState([]);
@@ -12,48 +12,48 @@ function Main() {
   const [days, setDays] = useState(1);
 
   useEffect(() => {
-    const { checkIn, checkOut, location, currency, limit } = getInitialDates();
-    fetchHotels({ checkIn, checkOut, location, currency, limit });
+    const { checkIn, checkOut, location } = getInitialDates();
+    fetchHotels({ checkIn, checkOut, location });
   }, []);
 
   const getInitialDates = () => {
     const today = new Date();
     const checkOutDate = new Date();
-
     checkOutDate.setDate(today.getDate() + 1);
     const checkIn = today.toISOString().slice(0, 10);
     const checkOut = checkOutDate.toISOString().slice(0, 10);
-
     const location = 'Москва';
     return { checkIn, checkOut, location };
   };
 
-  const fetchHotels = async ({ checkIn, checkOut, location, currency, limit }) => {
+  const fetchHotels = async ({ checkIn, checkOut, location }) => {
     try {
-      const hotels = await apiHotels.getHotels({ location, checkIn, checkOut, currency, limit });
+      const hotels = await apiHotels.getHotels({ location, checkIn, checkOut });
       setHotels(hotels);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleSearch = ({ location, checkIn, days, currency, limit }) => {
+  const handleSearch = ({ location, checkIn, days }) => {
     const checkOutDate = new Date(checkIn);
     checkOutDate.setDate(checkOutDate.getDate() + Number(days));
     const checkOut = checkOutDate.toISOString().slice(0, 10);
-    fetchHotels({ checkIn, checkOut, location, currency, limit });
+    setLocation(location);
+    setCheckIn(checkIn);
+    setDays(days);
+    fetchHotels({ checkIn, checkOut, location });
   };
 
   const date = new Date(checkIn);
   const options = { day: 'numeric', month: 'long', year: 'numeric' };
-  const formattedDate = date.toLocaleString('ru', options);
-
+  const formattedDate = date.toLocaleString('ru', options).replace(/ г\./, '');
 
   return (
     <main className={styles.main}>
-      <SearchingCard handleSearch={handleSearch} setLocation={setLocation} setCheckIn={setCheckIn} setDays={setDays} location={location} checkIn={checkIn} days={days} />
-      <FavoriteCard hotels={hotels} checkIn={checkIn} days={days} formattedDate={formattedDate} />
-      <HotelsCard hotels={hotels} checkIn={checkIn} days={days} formattedDate={formattedDate} />
+      <SearchingBlock handleSearch={handleSearch} location={location} checkIn={checkIn} days={days} setLocation={setLocation} setCheckIn={setCheckIn} setDays={setDays} />
+      <FavoriteCards hotels={hotels} days={days} formattedDate={formattedDate} />
+      <HotelsCards hotels={hotels} location={location} days={days} formattedDate={formattedDate} />
     </main>
   );
 }
