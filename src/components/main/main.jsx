@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { apiHotels } from '../../utils/api.js';
 import styles from './main.module.css';
-import SearchingCards from '../searching-cards/searching-cards.jsx';
+import SearchingBlock from '../searching-block/searching-block.jsx';
 import FavoriteCards from '../favorite-cards/favorite-cards.jsx';
 import HotelsCards from '../hotels-cards/hotels-cards.jsx';
 
@@ -51,7 +51,7 @@ function Main() {
 
   return (
     <main className={styles.main}>
-      <SearchingCards handleSearch={handleSearch} location={location} checkIn={checkIn} days={days} setLocation={setLocation} setCheckIn={setCheckIn} setDays={setDays} />
+      <SearchingBlock handleSearch={handleSearch} location={location} checkIn={checkIn} days={days} setLocation={setLocation} setCheckIn={setCheckIn} setDays={setDays} />
       <FavoriteCards hotels={hotels} checkIn={checkIn} days={days} formattedDate={formattedDate} />
       <HotelsCards hotels={hotels} location={location} checkIn={checkIn} days={days} formattedDate={formattedDate} />
     </main>

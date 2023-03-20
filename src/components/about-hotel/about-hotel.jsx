@@ -23,8 +23,10 @@ function AboutHotel({ onClick, hotel, days, formattedDate }) {
 
   return (
     <div className={styles.hotelBlock}>
-      <p className={styles.hotelName}>{hotel.hotelName}</p>
-      <div className={`${styles.like} ${liked ? styles.liked : ''}`} onClick={handleLikeClick}></div>
+      <div className={styles.firstString}>
+        <p className={styles.hotelName}>{hotel.hotelName}</p>
+        <div className={`${styles.like} ${liked ? styles.liked : ''}`} onClick={handleLikeClick}></div>
+      </div>
       <p className={styles.date}>{formattedDate} — {days} {getDayWord(days)}</p>
       <div className={styles.lastString}>
         <div className={styles.rating}>

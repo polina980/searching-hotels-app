@@ -11,6 +11,12 @@
   border-bottom: 0;
 }
 
+.firstString {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .hotelName {
   margin: 0;
   font-weight: 300;
