@@ -4,7 +4,7 @@
 Массив отелей приходит с сервера `http://engine.hotellook.com`.  
 На странице авторизации почта и пароль проходят стандартную валидацию.  
 
-### Сайт приложения: [Поиск отелей](https://polinashchepochkina.github.io/booking-app/)   
+### Сайт приложения: ["Поиск отелей"](https://polinashchepochkina.github.io/booking-app/)   
 
 **[Ссылка на макет Figma](https://www.figma.com/file/PxI4ycD6GMGSpxOZ2NbFBO/React-Test%2FSimple-Hotel-Check-(Copy)?node-id=0-1)**  
 
