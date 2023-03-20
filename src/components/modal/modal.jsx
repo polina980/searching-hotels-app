@@ -15,6 +15,7 @@ function Modal() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (isValidForm && !valueError.email && !valueError.password) {
+      localStorage.setItem('email', email);
       navigate('/hotels');
     }
   };

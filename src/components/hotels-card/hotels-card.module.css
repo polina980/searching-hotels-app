@@ -43,22 +43,6 @@
   margin: 0;
 }
 
-.imagesScroll {
-  display: flex;
-  margin: 28px 0 13px;
-  gap: 12px;
-  width: 600px;
-  height: 157px;
-  overflow-y: hidden;
-  overflow-x: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.imagesScroll::-webkit-scrollbar {
-  display: none;
-}
-
 .hotelsAmount {
   color: #424242;
   margin: 17px 0 40px;

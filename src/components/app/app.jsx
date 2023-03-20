@@ -5,7 +5,7 @@ import MainPage from '../../pages/main.jsx';
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/hotels" element={<MainPage />} />
     </Routes>
   )

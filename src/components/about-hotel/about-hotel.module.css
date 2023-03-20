@@ -12,6 +12,7 @@
 }
 
 .hotelName {
+  min-width: 180px;
   margin: 0;
   font-weight: 300;
   font-size: 17px;

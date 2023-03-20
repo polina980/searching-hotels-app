@@ -1,55 +1,53 @@
+import { useEffect, useState } from 'react';
 import styles from './hotels-card.module.css';
 import AboutHotel from '../about-hotel/about-hotel.jsx';
-import images from '../../utils/images.js'
+import SimpleSlider from '../slider/slider.jsx';
+import { getHotelWord } from '../../utils/constants.js';
 
-function HotelsCard() {
+function HotelsCards({ hotels, checkIn, days, formattedDate }) {
+  const [totalLikes, setTotalLikes] = useState(0);
+
+  const handleLike = (count) => {
+    const newTotalLikes = totalLikes + count;
+    setTotalLikes(newTotalLikes >= 0 ? newTotalLikes : 0);
+    localStorage.setItem('totalLikes', newTotalLikes >= 0 ? newTotalLikes : 0);
+  };
+
+  useEffect(() => {
+    const storedLikes = localStorage.getItem('totalLikes');
+    if (storedLikes) {
+      setTotalLikes(parseInt(storedLikes));
+    }
+  }, []);
+
   return (
     <section className={styles.hotels}>
       <div className={styles.firstString}>
         <div className={styles.firstColumn}>
           <p className={styles.arrow}>Отели</p>
-          <p>Москва</p>
+          <p></p>
         </div>
-        <p className={styles.checkInDate}>07 июля 2020</p>
+        <p className={styles.checkInDate}>{formattedDate}</p>
       </div>
-      <div className={styles.imagesScroll}>
-        <img src={images.house} alt="Дом" />
-        <img src={images.forest} alt="Лес" />
-        <img src={images.road} alt="Дорога" />
-        <img src={images.bridge} alt="Мост" />
-        <img src={images.track} alt="Трасса" />
-      </div>
+      <SimpleSlider />
       <p className={styles.hotelsAmount}>
-        Добавлено в Избранное: <strong>3</strong> отеля
+        Добавлено в Избранное: <strong>{totalLikes}</strong> {getHotelWord(totalLikes)}
       </p>
       <div className={styles.hotelsScroll}>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel />
-        </div>
-        <div className={styles.hotelFull}>
-          <div className={styles.icon}></div>
-          <AboutHotel />
-        </div>
+        {hotels.map((hotel) => (
+          <div key={hotel.hotelId} className={styles.hotelFull}>
+            <div className={styles.icon}></div>
+            <AboutHotel
+              onClick={handleLike}
+              hotel={hotel}
+              checkIn={checkIn}
+              days={days}
+              formattedDate={formattedDate} />
+          </div>
+        ))}
       </div>
     </section>
   )
 }
 
-export default HotelsCard;
+export default HotelsCards;
