@@ -26,5 +26,4 @@ class Api {
       .then(handleResponse);
   }
 }
-
 export const apiHotels = new Api(apiConfig);
