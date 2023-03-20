@@ -21,9 +21,10 @@ class Api {
   }
 
   async getHotels({ location, checkIn, checkOut }) {
-    const url = makeUrl(this._baseUrl, this._hotelsEndpoint) + `?location=${location}&checkIn=${checkIn}&checkOut=${checkOut}`;
+    const url = makeUrl(this._baseUrl, this._hotelsEndpoint) + `?location=${location}&currency=rub&checkIn=${checkIn}&checkOut=${checkOut}&limit=10`;
     return fetch(url)
       .then(handleResponse);
   }
 }
+
 export const apiHotels = new Api(apiConfig);

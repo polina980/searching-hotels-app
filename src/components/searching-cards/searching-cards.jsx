@@ -1,12 +1,6 @@
-import { todaysDate } from '../../utils/constants.js';
-import { useState } from 'react';
-import styles from './searching-card.module.css';
+import styles from './searching-cards.module.css';
 
-function SearchingCard({ handleSearch }) {
-  const [location, setLocation] = useState('');
-  const [checkIn, setCheckIn] = useState(new Date().toISOString().slice(0, 10));
-  const [days, setDays] = useState(1);
-
+function SearchingCards({ handleSearch, location, checkIn, days, setLocation, setCheckIn, setDays }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     handleSearch({ location, checkIn, days });
@@ -28,4 +22,4 @@ function SearchingCard({ handleSearch }) {
   )
 }
 
-export default SearchingCard;
+export default SearchingCards;
