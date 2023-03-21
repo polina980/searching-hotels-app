@@ -51,9 +51,23 @@ function Main() {
 
   return (
     <main className={styles.main}>
-      <SearchingBlock handleSearch={handleSearch} location={location} checkIn={checkIn} days={days} setLocation={setLocation} setCheckIn={setCheckIn} setDays={setDays} />
-      <FavoriteCards hotels={hotels} days={days} formattedDate={formattedDate} />
-      <HotelsCards hotels={hotels} location={location} days={days} formattedDate={formattedDate} />
+      <SearchingBlock
+        handleSearch={handleSearch}
+        location={location}
+        checkIn={checkIn}
+        days={days}
+        setLocation={setLocation}
+        setCheckIn={setCheckIn}
+        setDays={setDays} />
+      <FavoriteCards
+        hotels={hotels}
+        days={days}
+        formattedDate={formattedDate} />
+      <HotelsCards
+        hotels={hotels}
+        location={location}
+        days={days}
+        formattedDate={formattedDate} />
     </main>
   );
 }

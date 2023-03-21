@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import styles from './favorite-cards.module.css';
 import AboutHotel from '../about-hotel/about-hotel.jsx';
 
@@ -20,6 +20,10 @@ function FavoriteCards({ hotels, days, formattedDate }) {
     return sorted;
   }, [favoriteHotels, sortMethod, sortOrder]);
 
+  const shouldDisableSorting = favoriteHotels.length <= 1;
+  const shouldAddActiveSortStyle = shouldDisableSorting ? '' : styles.activeSort;
+  const shouldAddDownSortStyle = shouldDisableSorting ? '' : styles.downSort;
+
   const handleSort = (method) => {
     if (method === sortMethod) {
       setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc');
@@ -35,11 +39,11 @@ function FavoriteCards({ hotels, days, formattedDate }) {
       <div className={styles.buttons}>
         <button
           className={`${styles.sort} 
-          ${sortMethod === 'rating' ? styles.activeSort : ''} 
+          ${sortMethod === 'rating' ? shouldAddActiveSortStyle : ''} 
           ${sortMethod === 'rating' && sortOrder === 'asc' ? styles.upSort : ''} 
-          ${sortMethod === 'rating' && sortOrder === 'desc' ? styles.downSort : ''}`}
+          ${sortMethod === 'rating' && sortOrder === 'desc' ? shouldAddDownSortStyle : ''}`}
           onClick={() => handleSort('rating')}
-        >
+          disabled={shouldDisableSorting}>
           Рейтинг
         </button>
         <button
@@ -48,7 +52,7 @@ function FavoriteCards({ hotels, days, formattedDate }) {
           ${sortMethod === 'price' && sortOrder === 'asc' ? styles.upSort : ''} 
           ${sortMethod === 'price' && sortOrder === 'desc' ? styles.downSort : ''}`}
           onClick={() => handleSort('price')}
-        >
+          disabled={shouldDisableSorting}>
           Цена
         </button>
       </div>
@@ -58,8 +62,7 @@ function FavoriteCards({ hotels, days, formattedDate }) {
             key={hotel.hotelId}
             hotel={hotel}
             days={days}
-            formattedDate={formattedDate}
-          />
+            formattedDate={formattedDate} />
         ))}
       </div>
     </section>

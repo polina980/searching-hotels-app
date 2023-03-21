@@ -44,6 +44,11 @@ function Modal() {
     setIsValidForm(isValid);
   };
 
+  const focusHandler = (event) => {
+    const { name } = event.target;
+    setValueError((prev) => ({ ...prev, [name]: '' }));
+  };
+
   return createPortal(
     <>
       <ModalOverlay />
@@ -56,6 +61,7 @@ function Modal() {
             className={`${styles.input} ${valueError.email && styles.errorColor}`}
             onChange={handleChange}
             onBlur={blurHandler}
+            onFocus={focusHandler}
             value={email}
             name={'email'}
           />
@@ -68,6 +74,7 @@ function Modal() {
             className={`${styles.input} ${valueError.password && styles.errorColor}`}
             onChange={handleChange}
             onBlur={blurHandler}
+            onFocus={focusHandler}
             value={password}
             name={'password'}
           />
