@@ -9,13 +9,18 @@ function SearchingBlock({ handleSearch, location, checkIn, days, setLocation, se
   return (
     <form className={styles.location} onSubmit={handleSubmit}>
       <label className={styles.inputName}>Локация
-        <input type="text" className={styles.input} placeholder="Москва" value={location} onChange={(event) => setLocation(event.target.value)} />
+        <input type="text" className={styles.input} placeholder="Москва"
+          value={location.charAt(0).toUpperCase() + location.slice(1)}
+          onChange={(event) => setLocation(event.target.value)} />
       </label>
       <label className={styles.inputName}>Дата заселения
-        <input type="date" className={styles.input} defaultValue={checkIn} onChange={(event) => setCheckIn(event.target.value)} />
+        <input type="date" className={styles.input}
+          defaultValue={checkIn}
+          onChange={(event) => setCheckIn(event.target.value)} />
       </label>
       <label className={styles.inputName}>Количество дней
-        <input type="text" className={styles.input} placeholder={days} onChange={(event) => setDays(event.target.value)} />
+        <input type="text" className={styles.input} placeholder={days}
+          onChange={(event) => setDays(event.target.value)} />
       </label>
       <button className={styles.button}>Найти</button>
     </form>

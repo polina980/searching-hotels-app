@@ -39,6 +39,20 @@
   cursor: pointer;
 }
 
+.activeSort {
+  background-position: right 5px center;
+  border: 1px solid #41522E;
+  color: #41522E;
+}
+
+.downSort {
+  background-image: url(../../images/down-active.png);
+}
+
+.upSort {
+  background-image: url(../../images/up-active.png);
+}
+
 .favScroll {
   display: flex;
   flex-direction: column;

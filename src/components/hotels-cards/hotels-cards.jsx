@@ -25,7 +25,7 @@ function HotelsCards({ hotels, location, days, formattedDate }) {
       <div className={styles.firstString}>
         <div className={styles.firstColumn}>
           <p className={styles.arrow}>Отели</p>
-          <p>{location}</p>
+          <p>{location ? location : 'Москва'}</p>
         </div>
         <p className={styles.checkInDate}>{formattedDate}</p>
       </div>
