@@ -9,7 +9,7 @@
 }
 
 /* 768px */
-@media screen and (min-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .main {
     background-color: #e5e5e5;
     display: flex;
@@ -17,4 +17,4 @@
     align-items: center;
     gap: 24px;
   }
-}
+} */
