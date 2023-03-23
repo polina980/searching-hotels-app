@@ -1,9 +1,5 @@
 .hotelBlock {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: baseline;
-  padding-bottom: 15px;
+  padding-bottom: 16px;
   border-bottom: 1px solid rgba(135, 135, 135, 0.2);
 }
 
@@ -13,8 +9,6 @@
 
 .firstString {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
   gap: 15px;
 }
 
@@ -64,7 +58,6 @@
 
 .date {
   margin: 0;
-  width: 296px;
   font-weight: 300;
   font-size: 13px;
   line-height: 22px;
@@ -73,34 +66,23 @@
 }
 
 .lastString {
-  display: grid;
-  grid-template-columns: 1fr minmax(87px, 271px) 1fr;
-  grid-template-areas:
-    'first'
-    'second'
-    'third';
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: flex-end;
 }
 
 .rating {
   display: flex;
-  width: 97px;
+  width: 100px;
   height: 17px;
   gap: 3px;
   cursor: pointer;
-  grid-area: 'first';
-}
-
-.empty {
-  grid-area: 'second';
 }
 
 .priceBlock {
   display: flex;
-  justify-content: space-between;
-  width: 110px;
   gap: 8px;
-  grid-area: 'third';
 }
 
 .priceText {
@@ -117,4 +99,11 @@
   font-size: 16px;
   line-height: 22px;
   color: #878787;
+}
+
+/* 1024px */
+@media screen and (min-width: 1024px) {
+  .lastString {
+    justify-content: space-between;
+  }
 }

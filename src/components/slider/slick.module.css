@@ -1,5 +1,5 @@
 .slider {
-    margin: 29px auto 9px;
-    width: 527px;
+    margin: 29px 0 9px;
     height: 157px;
+    cursor: pointer;
 }

@@ -8,12 +8,27 @@ import images from '../../utils/images.js';
 export default class SimpleSlider extends Component {
   render() {
     const settings = {
-      dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1
+      slidesToShow: 3.5,
+      slidesToScroll: 1,
+      autoplay: true,
+      speed: 7000,
+      autoplaySpeed: 1,
+      cssEase: "linear"
     };
+
+    // if (window.innerWidth >= 320) {
+    //   settings.slidesToShow = 1.4;
+    // } else if (window.innerWidth >= 768) {
+    //   settings.slidesToShow = 3;
+    // } else if (window.innerWidth >= 1024) {
+    //   settings.slidesToShow = 3;
+    // } else if (window.innerWidth >= 1440) {
+    //   settings.slidesToShow = 3;
+    // } else {
+    //   settings.slidesToShow = 3.5;
+    // }
 
     return (
       <div className={styles.slider}>

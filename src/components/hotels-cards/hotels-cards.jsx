@@ -37,7 +37,11 @@ function HotelsCards({ hotels, location, days, formattedDate }) {
         {hotels.map((hotel) => (
           <div key={hotel.hotelId} className={styles.hotelFull}>
             <div className={styles.icon}></div>
-            <AboutHotel onClick={handleLike} hotel={hotel} days={days} formattedDate={formattedDate} />
+            <AboutHotel
+              key={hotel.hotelId}
+              onClick={handleLike}
+              hotel={hotel} days={days}
+              formattedDate={formattedDate} />
           </div>
         ))}
       </div>

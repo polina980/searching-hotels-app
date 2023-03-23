@@ -1,16 +1,20 @@
 .header {
   display: flex;
+  position: fixed;
   justify-content: space-between;
   align-items: center;
+  left: 0;
+  right: 0;
   padding: 0 35px;
   height: 92px;
   background-color: #E5E5E5;
+  z-index: 1;
 }
 
 .title {
   margin: 0;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 21px;
   line-height: 28px;
   color: #424242;
 }
@@ -27,4 +31,11 @@
   font-size: 16px;
   line-height: 20px;
   color: #41522E;
+}
+
+/* 768px */
+@media screen and (min-width: 768px) {
+  .title {
+    font-size: 24px;
+  }
 }

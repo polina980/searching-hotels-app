@@ -35,7 +35,6 @@ function AboutHotel({ onClick, hotel, days, formattedDate }) {
             <div key={index} className={`${styles.star} ${index < hotel.stars ? styles.rated : ''}`}></div>
           ))}
         </div>
-        <div className={styles.empty}></div>
         <div className={styles.priceBlock}>
           <p className={styles.priceText}>Цена:</p>
           <p className={styles.priceTotal}>{Math.round(hotel.priceAvg).toLocaleString()} ₽</p>
